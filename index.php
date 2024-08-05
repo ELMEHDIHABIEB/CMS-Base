@@ -44,9 +44,8 @@
             background-color: #333;
             color: #fff;
             text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
+            padding: 0px 0;
+                 bottom: 0;
             width: 100%;
         }
         .article {
