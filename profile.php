@@ -22,15 +22,25 @@ $profile_user = $result->fetch_assoc();
 <?php include 'sidebar.php'; ?>
 
 <main>
-    <div class="card bg-dark text-light">
-        <div class="card-body">
-            <h4 class="card-title mb-4"><i class="bi bi-person-circle"></i> Profile</h4>
-            <div class="profile-info">
-                <img src="<?php echo htmlspecialchars($profile_user['avatar']); ?>" alt="Avatar" class="img-thumbnail" style="max-width: 150px;">
-                <p><strong>First Name:</strong> <?php echo htmlspecialchars($profile_user['first_name']); ?></p>
-                <p><strong>Email:</strong> <?php echo htmlspecialchars($profile_user['email']); ?></p>
-                <p><strong>Phone:</strong> <?php echo htmlspecialchars($profile_user['phone']); ?></p>
-                <p><strong>Bio:</strong> <?php echo htmlspecialchars($profile_user['bio']); ?></p>
+    <div class="container mt-5">
+        <div class="card bg-dark text-light">
+            <div class="card-body">
+                <h4 class="card-title mb-4"><i class="bi bi-person-circle"></i> Profile</h4>
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                       
+                      
+                      <img src="<?php echo htmlspecialchars($profile_user['avatar']); ?>" alt="Avatar" class="img-thumbnail" style="max-width: 130px;">
+                  <br>
+                      <strong><?php echo htmlspecialchars($profile_user['first_name']); ?></strong> 
+                  </div>
+                    <div class="col-md-8">
+                        
+                        <p><strong>Email:</strong> <?php echo htmlspecialchars($profile_user['email']); ?></p>
+                        <p><strong>Phone:</strong> <?php echo htmlspecialchars($profile_user['phone']); ?></p>
+                         <p><strong>Bio:</strong> <?php echo htmlspecialchars($profile_user['bio']); ?></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
