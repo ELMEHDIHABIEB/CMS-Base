@@ -36,7 +36,7 @@ $stmt->close();
         <div class="message <?php echo $msg['sender_id'] == $logged_in_user_id ? 'outgoing' : 'incoming'; ?>">
             <div class="d-flex align-items-start mb-3">
              <?php if ($msg['sender_id'] == $logged_in_user_id): ?>
-    <img src="<?php echo htmlspecialchars($profile_user['avatar'] ?: '/avatar/default-avatar.png'); ?>" 
+    <img src="<?php echo htmlspecialchars($profile_user['user_avatar'] ?: '/avatar/default-avatar.png'); ?>" 
          alt="Your Avatar" 
          class="img-thumbnail rounded-circle me-3" 
          style="width: 40px; height: 40px; object-fit: cover;">
@@ -49,7 +49,7 @@ $stmt->close();
 
 
                 <div>
-                    <p><strong><a href="profile.php?user_id=<?php echo htmlspecialchars($msg['sender_id']); ?>" class="text-light"><?php echo htmlspecialchars($msg['sender_name']); ?></a>:</strong> <?php echo htmlspecialchars($msg['message']); ?></p>
+                    <p><a href="profile.php?user_id=<?php echo htmlspecialchars($msg['sender_id']); ?>" class="text-light"><?php echo htmlspecialchars($msg['sender_name']); ?></a></p><br><p><strong> <?php echo htmlspecialchars($msg['message']); ?></strong></p>
                     <small><?php echo date('Y-m-d H:i', strtotime($msg['sent_at'])); ?></small>
                 </div>
             </div>
