@@ -202,53 +202,6 @@ $(document).ready(function() {
             url: 'fetch_messages.php?user_id=<?php echo $receiver_id; ?>',
             success: function(data) {
                 $('#message-container').html(data);
-            }
-        });
-    }
-
-    // Typing notification
-    var typingTimeout;
-    $('#message-input').on('input', function() {
-        clearTimeout(typingTimeout);
-        $.post('typing.php', { user_id: <?php echo $receiver_id; ?> });
-        typingTimeout = setTimeout(stopTyping, 2000);
-    });
-
-    function stopTyping() {
-        $.post('typing.php', { user_id: <?php echo $receiver_id; ?>, stop: true });
-    }
-
-    setInterval(loadMessages, 3000); // Load new messages every 3 seconds
-    setInterval(checkTyping, 1000); // Check typing status every 1 second
-
-    function checkTyping() {
-        $.get('check_typing.php?user_id=<?php echo $receiver_id; ?>', function(data) {
-            $('#typing-status').text(data);
-        });
-    }
-});
-  $(document).ready(function() {
-    // Send message via AJAX
-    $('#message-form').submit(function(e) {
-        e.preventDefault();
-        var message = $('#message-input').val();
-        $.ajax({
-            url: 'message.php?user_id=<?php echo $receiver_id; ?>',
-            type: 'POST',
-            data: { message: message },
-            success: function(data) {
-                $('#message-input').val('');
-                loadMessages();
-            }
-        });
-    });
-
-    // Load new messages
-    function loadMessages() {
-        $.ajax({
-            url: 'fetch_messages.php?user_id=<?php echo $receiver_id; ?>',
-            success: function(data) {
-                $('#message-container').html(data);
                 scrollToBottom(); // Scroll to the bottom after loading messages
             }
         });
@@ -284,5 +237,6 @@ $(document).ready(function() {
     // Initial scroll to the bottom on page load
     scrollToBottom();
 });
-
 </script>
+
+<?php include 'footer.php'; ?>
